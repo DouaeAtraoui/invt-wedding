@@ -5,37 +5,34 @@
 :root {
 
     --ivory:
-        #f8f5ed;
+        #f8f6ef;
 
     --ivory-light:
-        #fffdf8;
-
-    --ivory-dark:
-        #eee8dc;
-
-    --paper:
         #fffefa;
 
-    --red:
-        #8f3037;
+    --paper:
+        #fdfbf6;
 
-    --red-dark:
-        #6f2229;
+    --paper-dark:
+        #f2eee5;
 
-    --red-light:
-        #a7474d;
+    --wine:
+        #7f2630;
+
+    --wine-dark:
+        #5f1720;
+
+    --wine-light:
+        #a13d47;
 
     --gold:
-        #ae8c59;
+        #b0966d;
 
     --brown:
-        #55453e;
+        #51443e;
 
     --brown-light:
-        #79675d;
-
-    --shadow:
-        rgba(70, 40, 35, .13);
+        #806f65;
 
 }
 
@@ -66,9 +63,11 @@ body {
 
     margin: 0;
 
-    background: var(--ivory);
+    background:
+        var(--ivory);
 
-    color: var(--brown);
+    color:
+        var(--brown);
 
     font-family:
         "Montserrat",
@@ -76,13 +75,11 @@ body {
 
     font-weight: 300;
 
-    overflow: hidden;
-
 }
 
 
 /* =========================================================
-   PAGE D'OUVERTURE
+   PAGE 1
 ========================================================= */
 
 .opening {
@@ -100,15 +97,18 @@ body {
     justify-content: center;
 
     background:
+
         radial-gradient(
             circle at center,
             #fffefa 0%,
-            #f8f5ed 58%,
-            #eee8dc 100%
+            #faf8f2 50%,
+            #eeeae1 100%
         );
 
     transition:
+
         opacity 1.2s ease,
+
         visibility 1.2s ease;
 
 }
@@ -142,31 +142,33 @@ body {
    ENVELOPPE
 ========================================================= */
 
-.envelope {
+.elegant-envelope {
 
     position: relative;
 
-    width: 470px;
+    width: 650px;
 
-    height: 300px;
+    height: 390px;
 
     cursor: pointer;
 
-    perspective: 1200px;
+    perspective: 1500px;
 
     filter:
+
         drop-shadow(
-            0 25px 40px
-            var(--shadow)
+            0 25px 35px
+            rgba(60, 35, 30, .13)
         );
 
     transition:
-        transform .4s ease;
+
+        transform .5s ease;
 
 }
 
 
-.envelope:hover {
+.elegant-envelope:hover {
 
     transform:
         translateY(-5px);
@@ -184,25 +186,49 @@ body {
 
     inset: 0;
 
-    z-index: 3;
+    overflow: hidden;
 
     background:
+
         linear-gradient(
-            145deg,
-            #fffefa,
-            #f8f4eb
+            135deg,
+            #fffefa 0%,
+            #f7f3eb 100%
         );
 
     border:
+
         1px solid
-        #e7dfd2;
+        rgba(155, 140, 120, .25);
+
+}
+
+
+/* =========================================================
+   RABAT GAUCHE
+========================================================= */
+
+.flap-left {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #fffefa,
+            #f4efe7
+        );
 
     clip-path:
+
         polygon(
             0 0,
-            50% 56%,
-            100% 0,
-            100% 100%,
+            50% 50%,
             0 100%
         );
 
@@ -210,270 +236,360 @@ body {
 
 
 /* =========================================================
-   RABAT
+   RABAT DROIT
 ========================================================= */
 
-.envelope-flap {
+.flap-right {
 
     position: absolute;
 
-    top: 0;
+    inset: 0;
 
-    left: 0;
+    z-index: 2;
 
-    z-index: 6;
+    background:
 
-    width: 0;
+        linear-gradient(
+            225deg,
+            #fffefa,
+            #f4efe7
+        );
 
-    height: 0;
+    clip-path:
 
-    border-left:
-        235px solid transparent;
-
-    border-right:
-        235px solid transparent;
-
-    border-top:
-        155px solid #f3eee5;
-
-    transform-origin:
-        top center;
-
-    transition:
-        transform
-        1.25s
-        cubic-bezier(
-            .65,
-            0,
-            .35,
-            1
+        polygon(
+            100% 0,
+            50% 50%,
+            100% 100%
         );
 
 }
 
 
 /* =========================================================
-   RUBAN
+   PARTIE INFÉRIEURE
 ========================================================= */
 
-.ribbon {
+.flap-bottom {
 
     position: absolute;
 
-    z-index: 8;
+    left: 0;
 
-    pointer-events: none;
+    bottom: 0;
+
+    z-index: 3;
+
+    width: 100%;
+
+    height: 55%;
 
     background:
+
         linear-gradient(
-            90deg,
-            var(--red-dark),
-            var(--red),
-            var(--red-dark)
+            180deg,
+            #faf7f0,
+            #f1ebe1
+        );
+
+    clip-path:
+
+        polygon(
+            0 100%,
+            50% 43%,
+            100% 100%
         );
 
 }
 
 
-/* vertical */
+/* =========================================================
+   RUBAN BORDEAUX
+========================================================= */
 
-.ribbon-vertical {
+.wine-ribbon {
+
+    position: absolute;
 
     top: 0;
 
     left: 50%;
 
-    width: 58px;
+    z-index: 10;
+
+    width: 64px;
 
     height: 100%;
 
     transform:
         translateX(-50%);
 
-}
-
-
-/* horizontal */
-
-.ribbon-horizontal {
-
-    left: 0;
-
-    top: 50%;
-
-    width: 100%;
-
-    height: 58px;
-
-    transform:
-        translateY(-50%);
-
-}
-
-
-/* =========================================================
-   NŒUD
-========================================================= */
-
-.ribbon-bow {
-
-    position: absolute;
-
-    z-index: 12;
-
-    top: 50%;
-
-    left: 50%;
-
-    width: 105px;
-
-    height: 75px;
-
-    transform:
-        translate(-50%, -50%);
-
-    pointer-events: none;
-
-}
-
-
-.bow-left {
-
-    position: absolute;
-
-    left: 0;
-
-    top: 12px;
-
-    width: 55px;
-
-    height: 50px;
-
     background:
-        linear-gradient(
-            135deg,
-            var(--red-light),
-            var(--red-dark)
-        );
 
-    border-radius:
-        60% 35% 45% 55%;
-
-    transform:
-        rotate(-18deg);
-
-    box-shadow:
-        inset -7px 0 10px
-        rgba(60, 10, 15, .18);
-
-}
-
-
-.bow-right {
-
-    position: absolute;
-
-    right: 0;
-
-    top: 12px;
-
-    width: 55px;
-
-    height: 50px;
-
-    background:
-        linear-gradient(
-            225deg,
-            var(--red-light),
-            var(--red-dark)
-        );
-
-    border-radius:
-        35% 60% 55% 45%;
-
-    transform:
-        rotate(18deg);
-
-    box-shadow:
-        inset 7px 0 10px
-        rgba(60, 10, 15, .18);
-
-}
-
-
-.bow-center {
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 50%;
-
-    z-index: 5;
-
-    width: 30px;
-
-    height: 37px;
-
-    transform:
-        translate(-50%, -50%);
-
-    border-radius: 5px;
-
-    background:
         linear-gradient(
             90deg,
-            var(--red-dark),
-            var(--red)
+
+            #5b1720 0%,
+
+            #76232d 17%,
+
+            #a33c47 48%,
+
+            #812833 78%,
+
+            #5e1720 100%
         );
 
     box-shadow:
-        0 5px 10px
-        rgba(60, 20, 20, .2);
+
+        inset
+        2px 0 4px
+        rgba(255,255,255,.12),
+
+        inset
+        -3px 0 6px
+        rgba(50,0,0,.22);
+
+}
+
+
+/* reflet du ruban */
+
+.wine-ribbon::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 14px;
+
+    width: 5px;
+
+    height: 100%;
+
+    background:
+        rgba(255,255,255,.10);
 
 }
 
 
 /* =========================================================
-   OUVERTURE
+   CACHET DE CIRE
 ========================================================= */
 
-.envelope.open .envelope-flap {
+.wax-seal {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    z-index: 20;
+
+    width: 112px;
+
+    height: 112px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 
     transform:
-        rotateX(180deg);
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 32% 27%,
+
+            #b4535c 0%,
+
+            #9c3741 35%,
+
+            #7b222c 70%,
+
+            #5e1720 100%
+        );
+
+    box-shadow:
+
+        0 9px 17px
+        rgba(55,15,20,.25),
+
+        inset
+        4px 4px 7px
+        rgba(255,255,255,.13),
+
+        inset
+        -5px -5px 9px
+        rgba(45,0,0,.28);
+
+    transition:
+
+        transform .5s ease,
+
+        opacity .5s ease;
 
 }
 
 
-.envelope.open .ribbon,
-.envelope.open .ribbon-bow {
+/* contour */
+
+.wax-seal::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -4px;
+
+    border-radius:
+        48% 52% 50% 47%;
+
+    border:
+        2px solid
+        rgba(100,25,35,.65);
+
+}
+
+
+/* cercle intérieur */
+
+.wax-seal::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(245,211,195,.38);
+
+}
+
+
+/* =========================================================
+   INITIALES
+========================================================= */
+
+.initials {
+
+    position: relative;
+
+    z-index: 3;
+
+    color:
+        #f1d7c5;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 45px;
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+    text-shadow:
+
+        1px 1px 2px
+        rgba(60,15,20,.3);
+
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.elegant-envelope.open {
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+.elegant-envelope.open .flap-left {
+
+    opacity: .15;
+
+    transition:
+        opacity .8s ease;
+
+}
+
+
+.elegant-envelope.open .flap-right {
+
+    opacity: .15;
+
+    transition:
+        opacity .8s ease;
+
+}
+
+
+.elegant-envelope.open .wine-ribbon {
 
     opacity: 0;
 
     transition:
-        opacity .4s ease .65s;
+        opacity .45s ease .45s;
+
+}
+
+
+.elegant-envelope.open .wax-seal {
+
+    transform:
+        translate(-50%, -50%)
+        scale(.75);
+
+    opacity: 0;
+
+    transition:
+
+        transform .5s ease,
+
+        opacity .4s ease .3s;
 
 }
 
 
 /* =========================================================
-   TEXTE SOUS ENVELOPPE
+   TEXTE PAGE 1
 ========================================================= */
 
 .opening-phrase {
 
-    margin-top: 50px;
+    margin-top: 55px;
 
-    color: #5e4d45;
+    color:
+        #81736c;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
-    font-size: 21px;
+    font-size: 19px;
 
-    letter-spacing: .4px;
+    font-weight: 400;
+
+    letter-spacing:
+        .3px;
 
 }
 
@@ -482,19 +598,22 @@ body {
 
     margin-top: 10px;
 
-    color: #a28e82;
+    color:
+        #c0b5ae;
 
-    font-size: 8px;
+    font-size: 7px;
 
-    letter-spacing: 2.5px;
+    letter-spacing:
+        3px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
 }
 
 
 /* =========================================================
-   CONTENU PRINCIPAL
+   PAGE 2
 ========================================================= */
 
 .main-content {
@@ -518,10 +637,6 @@ body {
 }
 
 
-/* =========================================================
-   PAGE INVITATION
-========================================================= */
-
 .invitation-section {
 
     min-height: 100vh;
@@ -531,11 +646,12 @@ body {
 
     display: flex;
 
-    align-items: center;
-
     justify-content: center;
 
+    align-items: center;
+
     background:
+
         radial-gradient(
             circle at center,
             #fffefa,
@@ -559,31 +675,33 @@ body {
     min-height: 900px;
 
     padding:
-        90px 75px 75px;
+        85px 75px 70px;
 
     overflow: hidden;
 
+    text-align: center;
+
     background:
+
         linear-gradient(
             145deg,
             #fffefa,
-            #faf7ef
+            #faf7f0
         );
 
     border:
         1px solid
-        rgba(140, 115, 90, .15);
+        rgba(140,115,90,.16);
 
     box-shadow:
-        0 30px 80px
-        rgba(70, 40, 35, .12);
 
-    text-align: center;
+        0 30px 80px
+        rgba(70,40,35,.12);
 
 }
 
 
-/* texture papier */
+/* texture */
 
 .invitation-paper::before {
 
@@ -598,6 +716,7 @@ body {
     opacity: .025;
 
     background-image:
+
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 
 }
@@ -607,55 +726,103 @@ body {
    FLEURS
 ========================================================= */
 
-.flowers {
+.flower {
 
     position: absolute;
 
-    display: flex;
+    width: 150px;
 
-    flex-direction: column;
+    height: 210px;
 
-    gap: 0;
+    pointer-events: none;
 
-    color:
-        rgba(139, 112, 92, .55);
+    opacity: .72;
+
+}
+
+
+/* tige */
+
+.flower .stem {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    height: 180px;
+
+    background:
+        rgba(103,120,77,.55);
+
+    transform:
+        rotate(-18deg);
+
+    transform-origin:
+        bottom center;
+
+}
+
+
+/* fleurs */
+
+.flower-head {
+
+    position: absolute;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
-    font-size: 55px;
-
-    line-height: .7;
+    font-size: 43px;
 
 }
 
 
-.flowers span:nth-child(2) {
-
-    margin-left: 20px;
-
-    color:
-        rgba(143, 48, 55, .45);
-
-}
-
-
-.flowers span:nth-child(3) {
-
-    margin-left: 5px;
-
-    color:
-        rgba(174, 140, 89, .55);
-
-}
-
-
-.flowers-top-left {
+.flower-one {
 
     top: 15px;
 
-    left: 15px;
+    left: 30px;
+
+    color:
+        rgba(142,72,76,.55);
+
+}
+
+
+.flower-two {
+
+    top: 65px;
+
+    left: 80px;
+
+    color:
+        rgba(174,140,89,.6);
+
+}
+
+
+.flower-three {
+
+    top: 112px;
+
+    left: 45px;
+
+    color:
+        rgba(112,91,100,.48);
+
+}
+
+
+.flower-top-left {
+
+    top: 0;
+
+    left: -25px;
 
     transform:
         rotate(-20deg);
@@ -663,11 +830,24 @@ body {
 }
 
 
-.flowers-top-right {
+.flower-top-right {
 
-    top: 20px;
+    top: 0;
 
-    right: 20px;
+    right: -25px;
+
+    transform:
+        scaleX(-1)
+        rotate(-20deg);
+
+}
+
+
+.flower-bottom-left {
+
+    bottom: -15px;
+
+    left: -25px;
 
     transform:
         rotate(20deg);
@@ -675,53 +855,44 @@ body {
 }
 
 
-.flowers-bottom-left {
+.flower-bottom-right {
 
-    bottom: 20px;
+    bottom: -15px;
 
-    left: 15px;
-
-    transform:
-        rotate(-15deg);
-
-}
-
-
-.flowers-bottom-right {
-
-    bottom: 20px;
-
-    right: 15px;
+    right: -25px;
 
     transform:
-        rotate(15deg);
+        scaleX(-1)
+        rotate(20deg);
 
 }
 
 
 /* =========================================================
-   TEXTE FAMILLE
+   FAMILLES
 ========================================================= */
 
 .family-text {
 
     position: relative;
 
-    margin-bottom: 35px;
+    margin-bottom: 32px;
 
-    color: var(--red);
+    color:
+        var(--wine);
 
     font-size: 8px;
 
-    letter-spacing: 3.5px;
-
     line-height: 1.8;
+
+    letter-spacing:
+        3.5px;
 
 }
 
 
 /* =========================================================
-   INTRO
+   INTRODUCTION
 ========================================================= */
 
 .invitation-intro {
@@ -731,7 +902,7 @@ body {
     max-width: 500px;
 
     margin:
-        0 auto 40px;
+        0 auto 38px;
 
     color:
         var(--brown-light);
@@ -742,7 +913,7 @@ body {
 
     font-size: 19px;
 
-    line-height: 1.65;
+    line-height: 1.6;
 
 }
 
@@ -766,7 +937,8 @@ body {
 
 .name {
 
-    color: var(--red);
+    color:
+        var(--wine);
 
     font-family:
         "Great Vibes",
@@ -784,7 +956,8 @@ body {
     margin:
         8px 0;
 
-    color: var(--gold);
+    color:
+        var(--gold);
 
     font-family:
         "Cormorant Garamond",
@@ -844,7 +1017,33 @@ body {
 }
 
 
-.date-number {
+.date-day {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.day-name {
+
+    margin-bottom: 2px;
+
+    color:
+        var(--brown);
+
+    font-size: 9px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.date-day strong {
 
     color:
         #40352f;
@@ -853,7 +1052,9 @@ body {
         "Cormorant Garamond",
         serif;
 
-    font-size: 78px;
+    font-size: 70px;
+
+    font-weight: 400;
 
     line-height: 1;
 
@@ -868,7 +1069,7 @@ body {
 
     align-items: center;
 
-    gap: 4px;
+    gap: 5px;
 
     padding:
         0 25px;
@@ -891,19 +1092,45 @@ body {
 
     font-size: 10px;
 
-    letter-spacing: 3px;
+    letter-spacing:
+        3px;
 
 }
 
 
 .date-middle span:last-child {
 
-    color: var(--red);
+    color:
+        var(--wine);
 
 }
 
 
 .date-time {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.date-time span {
+
+    color:
+        var(--brown-light);
+
+    font-size: 8px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.date-time strong {
 
     color:
         #40352f;
@@ -912,7 +1139,9 @@ body {
         "Cormorant Garamond",
         serif;
 
-    font-size: 25px;
+    font-size: 27px;
+
+    font-weight: 400;
 
 }
 
@@ -934,18 +1163,20 @@ body {
 
     margin-bottom: 12px;
 
-    color: var(--gold);
+    color:
+        var(--gold);
 
     font-size: 8px;
 
-    letter-spacing: 3px;
+    letter-spacing:
+        3px;
 
 }
 
 
 .venue h2 {
 
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 
     color:
         #40352f;
@@ -954,7 +1185,7 @@ body {
         "Cormorant Garamond",
         serif;
 
-    font-size: 29px;
+    font-size: 30px;
 
     font-weight: 500;
 
@@ -981,8 +1212,6 @@ body {
 
 .maps-button {
 
-    position: relative;
-
     display: inline-flex;
 
     align-items: center;
@@ -992,7 +1221,7 @@ body {
     margin-top: 32px;
 
     padding:
-        14px 26px;
+        14px 27px;
 
     border:
         1px solid
@@ -1003,13 +1232,18 @@ body {
 
     font-size: 9px;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
 
     text-decoration: none;
 
     transition:
+
         background .3s ease,
-        color .3s ease;
+
+        color .3s ease,
+
+        border .3s ease;
 
 }
 
@@ -1017,10 +1251,10 @@ body {
 .maps-button:hover {
 
     background:
-        var(--red);
+        var(--wine);
 
     border-color:
-        var(--red);
+        var(--wine);
 
     color:
         white;
@@ -1028,16 +1262,8 @@ body {
 }
 
 
-.maps-icon,
-.arrow {
-
-    font-size: 13px;
-
-}
-
-
 /* =========================================================
-   SÉPARATEUR
+   SEPARATEUR
 ========================================================= */
 
 .paper-divider {
@@ -1046,26 +1272,24 @@ body {
 
     align-items: center;
 
-    justify-content: center;
-
     gap: 12px;
 
-    margin:
-        35px auto 25px;
-
     max-width: 250px;
+
+    margin:
+        38px auto 0;
 
 }
 
 
 .paper-divider span {
 
-    height: 1px;
-
     flex: 1;
 
+    height: 1px;
+
     background:
-        rgba(174, 140, 89, .45);
+        rgba(174,140,89,.45);
 
 }
 
@@ -1075,394 +1299,7 @@ body {
     color:
         var(--gold);
 
-    font-size: 12px;
-
-}
-
-
-/* =========================================================
-   RSVP BUTTON
-========================================================= */
-
-.rsvp-button {
-
-    position: relative;
-
-    padding:
-        13px 24px;
-
-    border: none;
-
-    background: transparent;
-
-    color:
-        var(--red);
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
-    transition:
-        opacity .3s ease;
-
-}
-
-
-.rsvp-button:hover {
-
-    opacity: .7;
-
-}
-
-
-.rsvp-button span {
-
-    margin-left: 5px;
-
-}
-
-
-/* =========================================================
-   MODAL
-========================================================= */
-
-.modal {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 2000;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 20px;
-
-    background:
-        rgba(55, 32, 30, .45);
-
-    backdrop-filter:
-        blur(7px);
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition:
-        opacity .35s ease,
-        visibility .35s ease;
-
-}
-
-
-.modal.show {
-
-    opacity: 1;
-
-    visibility: visible;
-
-}
-
-
-.modal-content {
-
-    position: relative;
-
-    width:
-        min(500px, 100%);
-
-    padding:
-        55px 45px;
-
-    background:
-        #fffdf8;
-
-    box-shadow:
-        0 25px 80px
-        rgba(40, 20, 20, .2);
-
-    text-align: center;
-
-    transform:
-        translateY(20px);
-
-    transition:
-        transform .4s ease;
-
-}
-
-
-.modal.show .modal-content {
-
-    transform:
-        translateY(0);
-
-}
-
-
-.close-modal {
-
-    position: absolute;
-
-    top: 15px;
-
-    right: 20px;
-
-    border: none;
-
-    background: transparent;
-
-    color:
-        #806d63;
-
-    font-size: 28px;
-
-    font-weight: 300;
-
-    cursor: pointer;
-
-}
-
-
-.modal-eyebrow {
-
-    margin-bottom: 15px;
-
-    color:
-        var(--red);
-
-    font-size: 8px;
-
-    letter-spacing: 3px;
-
-}
-
-
-.modal-content h2 {
-
-    margin-bottom: 15px;
-
-    color:
-        #40352f;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 40px;
-
-    font-weight: 400;
-
-}
-
-
-.modal-text {
-
-    margin-bottom: 30px;
-
-    color:
-        var(--brown-light);
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 18px;
-
-}
-
-
-/* =========================================================
-   FORMULAIRE
-========================================================= */
-
-.form-group {
-
-    margin-bottom: 20px;
-
-    text-align: left;
-
-}
-
-
-.form-group label {
-
-    display: block;
-
-    margin-bottom: 7px;
-
-    color:
-        #806d63;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-}
-
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-
-    width: 100%;
-
-    padding:
-        13px 10px;
-
-    border: none;
-
-    border-bottom:
-        1px solid
-        #d8cabb;
-
-    outline: none;
-
-    background:
-        transparent;
-
-    color:
-        var(--brown);
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 12px;
-
-}
-
-
-.form-group textarea {
-
-    height: 80px;
-
-    resize: vertical;
-
-}
-
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-
-    border-color:
-        var(--red);
-
-}
-
-
-/* =========================================================
-   CONFIRM BUTTON
-========================================================= */
-
-.confirm-button {
-
-    width: 100%;
-
-    margin-top: 10px;
-
-    padding:
-        15px;
-
-    border: none;
-
-    background:
-        var(--red);
-
-    color:
-        white;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-    transition:
-        background .3s ease;
-
-}
-
-
-.confirm-button:hover {
-
-    background:
-        var(--red-dark);
-
-}
-
-
-/* =========================================================
-   SUCCÈS
-========================================================= */
-
-.success-message {
-
-    display: none;
-
-}
-
-
-.success-message.show {
-
-    display: block;
-
-}
-
-
-.success-heart {
-
-    margin-bottom: 10px;
-
-    color:
-        var(--red);
-
-    font-size: 45px;
-
-}
-
-
-.success-message h3 {
-
-    margin-bottom: 10px;
-
-    color:
-        var(--red);
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 45px;
-
-    font-weight: 400;
-
-}
-
-
-.success-message p {
-
-    color:
-        var(--brown-light);
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 19px;
+    font-size: 11px;
 
 }
 
@@ -1476,13 +1313,13 @@ footer {
     padding:
         45px 20px;
 
+    text-align: center;
+
     background:
         #3f302d;
 
     color:
         white;
-
-    text-align: center;
 
 }
 
@@ -1507,7 +1344,8 @@ footer span {
 
     font-size: 8px;
 
-    letter-spacing: 3px;
+    letter-spacing:
+        3px;
 
 }
 
@@ -1516,74 +1354,67 @@ footer span {
    MOBILE
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
 
-    /* ENVELOPPE */
+    /* Enveloppe */
 
-    .envelope {
+    .elegant-envelope {
 
-        width: 330px;
+        width:
+            88vw;
 
-        height: 215px;
-
-    }
-
-
-    .envelope-flap {
-
-        border-left-width:
-            165px;
-
-        border-right-width:
-            165px;
-
-        border-top-width:
-            112px;
+        height:
+            53vw;
 
     }
 
 
-    .ribbon-vertical {
+    .wine-ribbon {
 
-        width: 43px;
-
-    }
-
-
-    .ribbon-horizontal {
-
-        height: 43px;
+        width:
+            9vw;
 
     }
 
 
-    .ribbon-bow {
+    .wax-seal {
 
-        transform:
-            translate(-50%, -50%)
-            scale(.78);
+        width:
+            15vw;
+
+        height:
+            15vw;
+
+        min-width:
+            70px;
+
+        min-height:
+            70px;
+
+    }
+
+
+    .initials {
+
+        font-size:
+            34px;
 
     }
 
 
     .opening-phrase {
 
-        margin-top: 38px;
+        margin-top:
+            40px;
 
-        font-size: 18px;
-
-    }
-
-
-    .opening-hint {
-
-        font-size: 7px;
+        font-size:
+            18px;
 
     }
 
 
-    /* FEUILLE */
+    /* Page invitation */
 
     .invitation-section {
 
@@ -1595,9 +1426,11 @@ footer span {
 
     .invitation-paper {
 
-        width: 100%;
+        width:
+            100%;
 
-        min-height: 760px;
+        min-height:
+            760px;
 
         padding:
             65px 27px 55px;
@@ -1607,32 +1440,35 @@ footer span {
 
     .family-text {
 
-        font-size: 7px;
+        font-size:
+            7px;
 
-        letter-spacing: 2.5px;
+        letter-spacing:
+            2.5px;
 
     }
 
 
     .invitation-intro {
 
-        font-size: 17px;
-
-        line-height: 1.55;
+        font-size:
+            17px;
 
     }
 
 
     .name {
 
-        font-size: 61px;
+        font-size:
+            61px;
 
     }
 
 
     .romantic-line {
 
-        font-size: 17px;
+        font-size:
+            17px;
 
         margin:
             32px auto;
@@ -1642,14 +1478,16 @@ footer span {
 
     .date-container {
 
-        gap: 12px;
+        gap:
+            12px;
 
     }
 
 
-    .date-number {
+    .date-day strong {
 
-        font-size: 61px;
+        font-size:
+            58px;
 
     }
 
@@ -1664,54 +1502,83 @@ footer span {
 
     .date-middle span {
 
-        font-size: 8px;
+        font-size:
+            8px;
 
-        letter-spacing: 2px;
+        letter-spacing:
+            2px;
 
     }
 
 
-    .date-time {
+    .date-time strong {
 
-        font-size: 19px;
+        font-size:
+            21px;
 
     }
 
 
     .venue h2 {
 
-        font-size: 25px;
+        font-size:
+            25px;
 
     }
 
 
     .venue-address {
 
-        font-size: 16px;
+        font-size:
+            16px;
 
     }
 
 
-    .flowers {
+    .flower {
 
-        font-size: 38px;
-
-    }
-
-
-    /* MODAL */
-
-    .modal-content {
-
-        padding:
-            50px 25px 35px;
+        transform:
+            scale(.7);
 
     }
 
 
-    .modal-content h2 {
+    .flower-top-left {
 
-        font-size: 34px;
+        left:
+            -55px;
+
+    }
+
+
+    .flower-top-right {
+
+        right:
+            -55px;
+
+    }
+
+
+    .flower-bottom-left {
+
+        left:
+            -55px;
+
+    }
+
+
+    .flower-bottom-right {
+
+        right:
+            -55px;
+
+    }
+
+
+    footer div {
+
+        font-size:
+            35px;
 
     }
 

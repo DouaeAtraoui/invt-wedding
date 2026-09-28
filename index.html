@@ -10,15 +10,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Douae & Mohssine — Invitation de mariage
-    </title>
+    <title>Douae & Mohssine — Invitation</title>
 
-
-    <!-- =====================================================
-         GOOGLE FONTS
-    ====================================================== -->
-
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
@@ -32,9 +26,6 @@
         rel="stylesheet"
     >
 
-
-    <!-- CSS -->
-
     <link
         rel="stylesheet"
         href="style.css"
@@ -46,9 +37,9 @@
 <body>
 
 
-<!-- =========================================================
-     PAGE D'OUVERTURE
-========================================================= -->
+<!-- =====================================================
+     PAGE 1 — ENVELOPPE
+===================================================== -->
 
 <section
     id="opening"
@@ -58,13 +49,11 @@
     <div class="opening-content">
 
 
-        <!-- =================================================
-             ENVELOPPE
-        ================================================== -->
+        <!-- ENVELOPPE -->
 
         <div
             id="envelope"
-            class="envelope"
+            class="elegant-envelope"
             role="button"
             tabindex="0"
             aria-label="Ouvrir l'invitation"
@@ -73,33 +62,39 @@
 
             <!-- Corps de l'enveloppe -->
 
-            <div class="envelope-body"></div>
+            <div class="envelope-body">
 
 
-            <!-- Rabat -->
+                <!-- Rabat gauche -->
 
-            <div class="envelope-flap"></div>
-
-
-            <!-- Ruban vertical -->
-
-            <div class="ribbon ribbon-vertical"></div>
+                <div class="flap-left"></div>
 
 
-            <!-- Ruban horizontal -->
+                <!-- Rabat droit -->
 
-            <div class="ribbon ribbon-horizontal"></div>
+                <div class="flap-right"></div>
 
 
-            <!-- Nœud -->
+                <!-- Rabat inférieur -->
 
-            <div class="ribbon-bow">
+                <div class="flap-bottom"></div>
 
-                <span class="bow-left"></span>
 
-                <span class="bow-center"></span>
+            </div>
 
-                <span class="bow-right"></span>
+
+            <!-- Ruban bordeaux -->
+
+            <div class="wine-ribbon"></div>
+
+
+            <!-- Cachet de cire -->
+
+            <div class="wax-seal">
+
+                <span class="initials">
+                    D&nbsp;&amp;&nbsp;M
+                </span>
 
             </div>
 
@@ -107,7 +102,7 @@
         </div>
 
 
-        <!-- Phrase sous l'enveloppe -->
+        <!-- Texte sous l'enveloppe -->
 
         <p class="opening-phrase">
             Une belle histoire commence ici.
@@ -125,19 +120,15 @@
 
 
 
-<!-- =========================================================
-     CONTENU APRÈS OUVERTURE
-========================================================= -->
+<!-- =====================================================
+     PAGE 2 — INVITATION
+===================================================== -->
 
 <main
     id="main-content"
     class="main-content"
 >
 
-
-    <!-- =====================================================
-         FEUILLE D'INVITATION
-    ====================================================== -->
 
     <section class="invitation-section">
 
@@ -149,45 +140,85 @@
                  FLEURS DÉCORATIVES
             ================================================== -->
 
-            <div class="flowers flowers-top-left">
+            <div class="flower flower-top-left">
 
-                <span>✿</span>
-                <span>❀</span>
-                <span>✾</span>
+                <span class="stem"></span>
 
-            </div>
+                <span class="flower-head flower-one">
+                    ✿
+                </span>
 
+                <span class="flower-head flower-two">
+                    ✾
+                </span>
 
-            <div class="flowers flowers-top-right">
-
-                <span>✿</span>
-                <span>❀</span>
-                <span>✾</span>
-
-            </div>
-
-
-            <div class="flowers flowers-bottom-left">
-
-                <span>✾</span>
-                <span>❀</span>
-                <span>✿</span>
+                <span class="flower-head flower-three">
+                    ❀
+                </span>
 
             </div>
 
 
-            <div class="flowers flowers-bottom-right">
+            <div class="flower flower-top-right">
 
-                <span>❀</span>
-                <span>✾</span>
-                <span>✿</span>
+                <span class="stem"></span>
+
+                <span class="flower-head flower-one">
+                    ❀
+                </span>
+
+                <span class="flower-head flower-two">
+                    ✾
+                </span>
+
+                <span class="flower-head flower-three">
+                    ✿
+                </span>
+
+            </div>
+
+
+            <div class="flower flower-bottom-left">
+
+                <span class="stem"></span>
+
+                <span class="flower-head flower-one">
+                    ✾
+                </span>
+
+                <span class="flower-head flower-two">
+                    ❀
+                </span>
+
+                <span class="flower-head flower-three">
+                    ✿
+                </span>
+
+            </div>
+
+
+            <div class="flower flower-bottom-right">
+
+                <span class="stem"></span>
+
+                <span class="flower-head flower-one">
+                    ✿
+                </span>
+
+                <span class="flower-head flower-two">
+                    ❀
+                </span>
+
+                <span class="flower-head flower-three">
+                    ✾
+                </span>
 
             </div>
 
 
 
             <!-- =================================================
-                 TEXTE SUPÉRIEUR
+                 INTRODUCTION
             ================================================== -->
 
             <p class="family-text">
@@ -198,11 +229,6 @@
 
             </p>
 
-
-
-            <!-- =================================================
-                 INTRODUCTION
-            ================================================== -->
 
             <p class="invitation-intro">
 
@@ -219,7 +245,7 @@
 
 
             <!-- =================================================
-                 NOMS
+                 NOMS DES MARIÉS
             ================================================== -->
 
             <div class="names">
@@ -245,7 +271,7 @@
 
 
             <!-- =================================================
-                 PETITE PHRASE
+                 PHRASE
             ================================================== -->
 
             <p class="romantic-line">
@@ -264,8 +290,16 @@
             <div class="date-container">
 
 
-                <div class="date-number">
-                    23
+                <div class="date-day">
+
+                    <span class="day-name">
+                        VENDREDI
+                    </span>
+
+                    <strong>
+                        23
+                    </strong>
+
                 </div>
 
 
@@ -283,7 +317,15 @@
 
 
                 <div class="date-time">
-                    18H00
+
+                    <span>
+                        À
+                    </span>
+
+                    <strong>
+                        18H00
+                    </strong>
+
                 </div>
 
 
@@ -304,12 +346,12 @@
 
 
                 <h2>
-                    RIAD
+                    Riad
                 </h2>
 
 
                 <p class="venue-address">
-                    KHEMISSET
+                    Khémisset
                 </p>
 
 
@@ -322,19 +364,19 @@
             ================================================== -->
 
             <a
-                href="https://maps.app.goo.gl/SoW7maaWNiZsaXzbA"
+                href="https://maps.app.goo.gl/zoUzNKzbLr3ZeVau8"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="maps-button"
             >
 
-                <span class="maps-icon">
+                <span>
                     ♧
                 </span>
 
                 Voir l'itinéraire
 
-                <span class="arrow">
+                <span>
                     ↗
                 </span>
 
@@ -357,25 +399,6 @@
             </div>
 
 
-
-            <!-- =================================================
-                 RSVP
-            ================================================== -->
-
-            <button
-                id="rsvpButton"
-                class="rsvp-button"
-            >
-
-                Confirmer ma présence
-
-                <span>
-                    ♡
-                </span>
-
-            </button>
-
-
         </div>
 
     </section>
@@ -383,198 +406,8 @@
 
 
     <!-- =====================================================
-         MODAL RSVP
-    ====================================================== -->
-
-    <div
-        id="rsvpModal"
-        class="modal"
-    >
-
-
-        <div class="modal-content">
-
-
-            <!-- Fermer -->
-
-            <button
-                id="closeModal"
-                class="close-modal"
-                aria-label="Fermer"
-            >
-                ×
-            </button>
-
-
-            <p class="modal-eyebrow">
-                VOTRE PRÉSENCE
-            </p>
-
-
-            <h2>
-                Serez-vous des nôtres ?
-            </h2>
-
-
-            <p class="modal-text">
-
-                Nous serions très heureux
-                de vous compter parmi nous.
-
-            </p>
-
-
-
-            <!-- FORMULAIRE -->
-
-            <form id="rsvpForm">
-
-
-                <div class="form-group">
-
-                    <label for="guestName">
-                        VOTRE NOM
-                    </label>
-
-                    <input
-                        type="text"
-                        id="guestName"
-                        placeholder="Prénom et nom"
-                        required
-                    >
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="attendance">
-                        VOTRE RÉPONSE
-                    </label>
-
-                    <select
-                        id="attendance"
-                        required
-                    >
-
-                        <option value="">
-                            Choisissez une réponse
-                        </option>
-
-                        <option value="oui">
-                            Avec grand plaisir ♡
-                        </option>
-
-                        <option value="non">
-                            Je ne pourrai malheureusement pas venir
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="guestNumber">
-                        NOMBRE DE PERSONNES
-                    </label>
-
-                    <select id="guestNumber">
-
-                        <option value="1">
-                            1 personne
-                        </option>
-
-                        <option value="2">
-                            2 personnes
-                        </option>
-
-                        <option value="3">
-                            3 personnes
-                        </option>
-
-                        <option value="4">
-                            4 personnes
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="guestMessage">
-                        UN PETIT MOT
-                    </label>
-
-                    <textarea
-                        id="guestMessage"
-                        placeholder="Écrivez-nous un petit mot..."
-                    ></textarea>
-
-                </div>
-
-
-
-                <button
-                    type="submit"
-                    class="confirm-button"
-                >
-
-                    Envoyer ma réponse
-
-                    <span>
-                        ♡
-                    </span>
-
-                </button>
-
-
-            </form>
-
-
-
-            <!-- =================================================
-                 MESSAGE DE SUCCÈS
-            ================================================== -->
-
-            <div
-                id="successMessage"
-                class="success-message"
-            >
-
-                <div class="success-heart">
-                    ♡
-                </div>
-
-
-                <h3>
-                    Merci infiniment
-                </h3>
-
-
-                <p>
-                    Votre réponse a bien été enregistrée.
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
          FOOTER
-    ====================================================== -->
+    ===================================================== -->
 
     <footer>
 
@@ -593,9 +426,8 @@
 
 
 
-<!-- JAVASCRIPT -->
-
 <script src="script.js"></script>
+
 
 </body>
 
