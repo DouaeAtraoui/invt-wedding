@@ -1,0 +1,1718 @@
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --ivory:
+        #f8f5ed;
+
+    --ivory-light:
+        #fffdf8;
+
+    --ivory-dark:
+        #eee8dc;
+
+    --paper:
+        #fffefa;
+
+    --red:
+        #8f3037;
+
+    --red-dark:
+        #6f2229;
+
+    --red-light:
+        #a7474d;
+
+    --gold:
+        #ae8c59;
+
+    --brown:
+        #55453e;
+
+    --brown-light:
+        #79675d;
+
+    --shadow:
+        rgba(70, 40, 35, .13);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    background: var(--ivory);
+
+    color: var(--brown);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-weight: 300;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   PAGE D'OUVERTURE
+========================================================= */
+
+.opening {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fffefa 0%,
+            #f8f5ed 58%,
+            #eee8dc 100%
+        );
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+
+}
+
+
+.opening.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.opening-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================================
+   ENVELOPPE
+========================================================= */
+
+.envelope {
+
+    position: relative;
+
+    width: 470px;
+
+    height: 300px;
+
+    cursor: pointer;
+
+    perspective: 1200px;
+
+    filter:
+        drop-shadow(
+            0 25px 40px
+            var(--shadow)
+        );
+
+    transition:
+        transform .4s ease;
+
+}
+
+
+.envelope:hover {
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+/* =========================================================
+   CORPS
+========================================================= */
+
+.envelope-body {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffefa,
+            #f8f4eb
+        );
+
+    border:
+        1px solid
+        #e7dfd2;
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 56%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+}
+
+
+/* =========================================================
+   RABAT
+========================================================= */
+
+.envelope-flap {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 6;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        235px solid transparent;
+
+    border-right:
+        235px solid transparent;
+
+    border-top:
+        155px solid #f3eee5;
+
+    transform-origin:
+        top center;
+
+    transition:
+        transform
+        1.25s
+        cubic-bezier(
+            .65,
+            0,
+            .35,
+            1
+        );
+
+}
+
+
+/* =========================================================
+   RUBAN
+========================================================= */
+
+.ribbon {
+
+    position: absolute;
+
+    z-index: 8;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--red-dark),
+            var(--red),
+            var(--red-dark)
+        );
+
+}
+
+
+/* vertical */
+
+.ribbon-vertical {
+
+    top: 0;
+
+    left: 50%;
+
+    width: 58px;
+
+    height: 100%;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+/* horizontal */
+
+.ribbon-horizontal {
+
+    left: 0;
+
+    top: 50%;
+
+    width: 100%;
+
+    height: 58px;
+
+    transform:
+        translateY(-50%);
+
+}
+
+
+/* =========================================================
+   NŒUD
+========================================================= */
+
+.ribbon-bow {
+
+    position: absolute;
+
+    z-index: 12;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 105px;
+
+    height: 75px;
+
+    transform:
+        translate(-50%, -50%);
+
+    pointer-events: none;
+
+}
+
+
+.bow-left {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 12px;
+
+    width: 55px;
+
+    height: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red-light),
+            var(--red-dark)
+        );
+
+    border-radius:
+        60% 35% 45% 55%;
+
+    transform:
+        rotate(-18deg);
+
+    box-shadow:
+        inset -7px 0 10px
+        rgba(60, 10, 15, .18);
+
+}
+
+
+.bow-right {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 12px;
+
+    width: 55px;
+
+    height: 50px;
+
+    background:
+        linear-gradient(
+            225deg,
+            var(--red-light),
+            var(--red-dark)
+        );
+
+    border-radius:
+        35% 60% 55% 45%;
+
+    transform:
+        rotate(18deg);
+
+    box-shadow:
+        inset 7px 0 10px
+        rgba(60, 10, 15, .18);
+
+}
+
+
+.bow-center {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    z-index: 5;
+
+    width: 30px;
+
+    height: 37px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--red-dark),
+            var(--red)
+        );
+
+    box-shadow:
+        0 5px 10px
+        rgba(60, 20, 20, .2);
+
+}
+
+
+/* =========================================================
+   OUVERTURE
+========================================================= */
+
+.envelope.open .envelope-flap {
+
+    transform:
+        rotateX(180deg);
+
+}
+
+
+.envelope.open .ribbon,
+.envelope.open .ribbon-bow {
+
+    opacity: 0;
+
+    transition:
+        opacity .4s ease .65s;
+
+}
+
+
+/* =========================================================
+   TEXTE SOUS ENVELOPPE
+========================================================= */
+
+.opening-phrase {
+
+    margin-top: 50px;
+
+    color: #5e4d45;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 21px;
+
+    letter-spacing: .4px;
+
+}
+
+
+.opening-hint {
+
+    margin-top: 10px;
+
+    color: #a28e82;
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   CONTENU PRINCIPAL
+========================================================= */
+
+.main-content {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 1.2s ease;
+
+}
+
+
+.main-content.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* =========================================================
+   PAGE INVITATION
+========================================================= */
+
+.invitation-section {
+
+    min-height: 100vh;
+
+    padding:
+        70px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fffefa,
+            #f8f5ed
+        );
+
+}
+
+
+/* =========================================================
+   FEUILLE
+========================================================= */
+
+.invitation-paper {
+
+    position: relative;
+
+    width:
+        min(700px, 94vw);
+
+    min-height: 900px;
+
+    padding:
+        90px 75px 75px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffefa,
+            #faf7ef
+        );
+
+    border:
+        1px solid
+        rgba(140, 115, 90, .15);
+
+    box-shadow:
+        0 30px 80px
+        rgba(70, 40, 35, .12);
+
+    text-align: center;
+
+}
+
+
+/* texture papier */
+
+.invitation-paper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .025;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+
+}
+
+
+/* =========================================================
+   FLEURS
+========================================================= */
+
+.flowers {
+
+    position: absolute;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    color:
+        rgba(139, 112, 92, .55);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 55px;
+
+    line-height: .7;
+
+}
+
+
+.flowers span:nth-child(2) {
+
+    margin-left: 20px;
+
+    color:
+        rgba(143, 48, 55, .45);
+
+}
+
+
+.flowers span:nth-child(3) {
+
+    margin-left: 5px;
+
+    color:
+        rgba(174, 140, 89, .55);
+
+}
+
+
+.flowers-top-left {
+
+    top: 15px;
+
+    left: 15px;
+
+    transform:
+        rotate(-20deg);
+
+}
+
+
+.flowers-top-right {
+
+    top: 20px;
+
+    right: 20px;
+
+    transform:
+        rotate(20deg);
+
+}
+
+
+.flowers-bottom-left {
+
+    bottom: 20px;
+
+    left: 15px;
+
+    transform:
+        rotate(-15deg);
+
+}
+
+
+.flowers-bottom-right {
+
+    bottom: 20px;
+
+    right: 15px;
+
+    transform:
+        rotate(15deg);
+
+}
+
+
+/* =========================================================
+   TEXTE FAMILLE
+========================================================= */
+
+.family-text {
+
+    position: relative;
+
+    margin-bottom: 35px;
+
+    color: var(--red);
+
+    font-size: 8px;
+
+    letter-spacing: 3.5px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.invitation-intro {
+
+    position: relative;
+
+    max-width: 500px;
+
+    margin:
+        0 auto 40px;
+
+    color:
+        var(--brown-light);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+    line-height: 1.65;
+
+}
+
+
+/* =========================================================
+   NOMS
+========================================================= */
+
+.names {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.name {
+
+    color: var(--red);
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 76px;
+
+    line-height: .95;
+
+}
+
+
+.ampersand {
+
+    margin:
+        8px 0;
+
+    color: var(--gold);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 31px;
+
+}
+
+
+/* =========================================================
+   PHRASE
+========================================================= */
+
+.romantic-line {
+
+    max-width: 430px;
+
+    margin:
+        40px auto;
+
+    color:
+        var(--brown);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+    font-style: italic;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.date-container {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin:
+        35px auto 45px;
+
+}
+
+
+.date-number {
+
+    color:
+        #40352f;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 78px;
+
+    line-height: 1;
+
+}
+
+
+.date-middle {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    padding:
+        0 25px;
+
+    border-left:
+        1px solid
+        var(--gold);
+
+    border-right:
+        1px solid
+        var(--gold);
+
+}
+
+
+.date-middle span {
+
+    color:
+        #4d4039;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.date-middle span:last-child {
+
+    color: var(--red);
+
+}
+
+
+.date-time {
+
+    color:
+        #40352f;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+}
+
+
+/* =========================================================
+   LIEU
+========================================================= */
+
+.venue {
+
+    position: relative;
+
+    margin-top: 20px;
+
+}
+
+
+.venue-label {
+
+    margin-bottom: 12px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.venue h2 {
+
+    margin-bottom: 6px;
+
+    color:
+        #40352f;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 29px;
+
+    font-weight: 500;
+
+}
+
+
+.venue-address {
+
+    color:
+        var(--brown-light);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 17px;
+
+}
+
+
+/* =========================================================
+   GOOGLE MAPS
+========================================================= */
+
+.maps-button {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 32px;
+
+    padding:
+        14px 26px;
+
+    border:
+        1px solid
+        var(--gold);
+
+    color:
+        #685349;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+
+}
+
+
+.maps-button:hover {
+
+    background:
+        var(--red);
+
+    border-color:
+        var(--red);
+
+    color:
+        white;
+
+}
+
+
+.maps-icon,
+.arrow {
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   SÉPARATEUR
+========================================================= */
+
+.paper-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin:
+        35px auto 25px;
+
+    max-width: 250px;
+
+}
+
+
+.paper-divider span {
+
+    height: 1px;
+
+    flex: 1;
+
+    background:
+        rgba(174, 140, 89, .45);
+
+}
+
+
+.paper-divider b {
+
+    color:
+        var(--gold);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   RSVP BUTTON
+========================================================= */
+
+.rsvp-button {
+
+    position: relative;
+
+    padding:
+        13px 24px;
+
+    border: none;
+
+    background: transparent;
+
+    color:
+        var(--red);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        opacity .3s ease;
+
+}
+
+
+.rsvp-button:hover {
+
+    opacity: .7;
+
+}
+
+
+.rsvp-button span {
+
+    margin-left: 5px;
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(55, 32, 30, .45);
+
+    backdrop-filter:
+        blur(7px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+
+}
+
+
+.modal.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    width:
+        min(500px, 100%);
+
+    padding:
+        55px 45px;
+
+    background:
+        #fffdf8;
+
+    box-shadow:
+        0 25px 80px
+        rgba(40, 20, 20, .2);
+
+    text-align: center;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        transform .4s ease;
+
+}
+
+
+.modal.show .modal-content {
+
+    transform:
+        translateY(0);
+
+}
+
+
+.close-modal {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 20px;
+
+    border: none;
+
+    background: transparent;
+
+    color:
+        #806d63;
+
+    font-size: 28px;
+
+    font-weight: 300;
+
+    cursor: pointer;
+
+}
+
+
+.modal-eyebrow {
+
+    margin-bottom: 15px;
+
+    color:
+        var(--red);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.modal-content h2 {
+
+    margin-bottom: 15px;
+
+    color:
+        #40352f;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 40px;
+
+    font-weight: 400;
+
+}
+
+
+.modal-text {
+
+    margin-bottom: 30px;
+
+    color:
+        var(--brown-light);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   FORMULAIRE
+========================================================= */
+
+.form-group {
+
+    margin-bottom: 20px;
+
+    text-align: left;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        #806d63;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    padding:
+        13px 10px;
+
+    border: none;
+
+    border-bottom:
+        1px solid
+        #d8cabb;
+
+    outline: none;
+
+    background:
+        transparent;
+
+    color:
+        var(--brown);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 12px;
+
+}
+
+
+.form-group textarea {
+
+    height: 80px;
+
+    resize: vertical;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color:
+        var(--red);
+
+}
+
+
+/* =========================================================
+   CONFIRM BUTTON
+========================================================= */
+
+.confirm-button {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding:
+        15px;
+
+    border: none;
+
+    background:
+        var(--red);
+
+    color:
+        white;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease;
+
+}
+
+
+.confirm-button:hover {
+
+    background:
+        var(--red-dark);
+
+}
+
+
+/* =========================================================
+   SUCCÈS
+========================================================= */
+
+.success-message {
+
+    display: none;
+
+}
+
+
+.success-message.show {
+
+    display: block;
+
+}
+
+
+.success-heart {
+
+    margin-bottom: 10px;
+
+    color:
+        var(--red);
+
+    font-size: 45px;
+
+}
+
+
+.success-message h3 {
+
+    margin-bottom: 10px;
+
+    color:
+        var(--red);
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 45px;
+
+    font-weight: 400;
+
+}
+
+
+.success-message p {
+
+    color:
+        var(--brown-light);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        45px 20px;
+
+    background:
+        #3f302d;
+
+    color:
+        white;
+
+    text-align: center;
+
+}
+
+
+footer div {
+
+    margin-bottom: 10px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 42px;
+
+}
+
+
+footer span {
+
+    color:
+        #cbb18a;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+    /* ENVELOPPE */
+
+    .envelope {
+
+        width: 330px;
+
+        height: 215px;
+
+    }
+
+
+    .envelope-flap {
+
+        border-left-width:
+            165px;
+
+        border-right-width:
+            165px;
+
+        border-top-width:
+            112px;
+
+    }
+
+
+    .ribbon-vertical {
+
+        width: 43px;
+
+    }
+
+
+    .ribbon-horizontal {
+
+        height: 43px;
+
+    }
+
+
+    .ribbon-bow {
+
+        transform:
+            translate(-50%, -50%)
+            scale(.78);
+
+    }
+
+
+    .opening-phrase {
+
+        margin-top: 38px;
+
+        font-size: 18px;
+
+    }
+
+
+    .opening-hint {
+
+        font-size: 7px;
+
+    }
+
+
+    /* FEUILLE */
+
+    .invitation-section {
+
+        padding:
+            25px 10px;
+
+    }
+
+
+    .invitation-paper {
+
+        width: 100%;
+
+        min-height: 760px;
+
+        padding:
+            65px 27px 55px;
+
+    }
+
+
+    .family-text {
+
+        font-size: 7px;
+
+        letter-spacing: 2.5px;
+
+    }
+
+
+    .invitation-intro {
+
+        font-size: 17px;
+
+        line-height: 1.55;
+
+    }
+
+
+    .name {
+
+        font-size: 61px;
+
+    }
+
+
+    .romantic-line {
+
+        font-size: 17px;
+
+        margin:
+            32px auto;
+
+    }
+
+
+    .date-container {
+
+        gap: 12px;
+
+    }
+
+
+    .date-number {
+
+        font-size: 61px;
+
+    }
+
+
+    .date-middle {
+
+        padding:
+            0 12px;
+
+    }
+
+
+    .date-middle span {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .date-time {
+
+        font-size: 19px;
+
+    }
+
+
+    .venue h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .venue-address {
+
+        font-size: 16px;
+
+    }
+
+
+    .flowers {
+
+        font-size: 38px;
+
+    }
+
+
+    /* MODAL */
+
+    .modal-content {
+
+        padding:
+            50px 25px 35px;
+
+    }
+
+
+    .modal-content h2 {
+
+        font-size: 34px;
+
+    }
+
+}
